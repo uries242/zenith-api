@@ -13,6 +13,8 @@ app.use(express.json());
 
 
 //-- ROUTES --
+
+// Create a Product
 app.post("/api/products", async (req, res) => {
   try {
     const product = new Product(req.body);
@@ -24,9 +26,18 @@ app.post("/api/products", async (req, res) => {
   }
 });
 
-
-
-
+// Read a Single Product
+app.get("/api/products/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 //-- PORT --
 app.listen(PORT, () => {
