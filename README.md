@@ -5,7 +5,7 @@ A robust and scalable API to manage product inventory. This API will serve as th
 
 
 
-## Prerequisites : Node.js
+## Prerequisites : Node.js , Javascript
 
 ## Installation
 git clone https://github.com/uries242/zenith-api
